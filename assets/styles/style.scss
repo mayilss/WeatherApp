@@ -50,6 +50,7 @@ h3 {
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-wrap: wrap;
     }
 }
 
@@ -92,7 +93,7 @@ h3 {
     border: 1px solid rgba(255, 255, 255, 0.18);
     z-index: 1;
     padding: 3em 2em;
-    overflow-y: scroll;
+    overflow-y: hidden;
 
     form {
         margin-bottom: 3em;

@@ -17,7 +17,7 @@ h3 {
 
 .weather-app {
   min-height: 100vh;
-  background-image: url(../images/Day/valentin-muller-bWtd1ZyEy6w-unsplash.jpg);
+  background-image: url(../images/day/cloudy.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -71,6 +71,8 @@ h3 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .city-time,
@@ -121,7 +123,7 @@ h3 {
   border: 1px solid rgba(255, 255, 255, 0.18);
   z-index: 1;
   padding: 3em 2em;
-  overflow-y: scroll;
+  overflow-y: hidden;
 }
 
 .panel form {
