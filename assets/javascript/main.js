@@ -50,7 +50,20 @@ function dayOfTheWeek() {
     const d = new Date();
     return weekday[d.getDay()];
 }
-const month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+const month = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+];
 
 function fetchWeatherData() {
     fetch(
@@ -66,7 +79,7 @@ function fetchWeatherData() {
             console.log(data.current.cloud);
             console.log(data.current.humidity);
             console.log(data.current.wind_kph);
-            console.log(data.location.localtime)
+            console.log(data.location.localtime);
 
             temp.innerHTML = data.current.temp_c + "&#176;";
             nameOutput.innerHTML = data.location.name;
@@ -81,10 +94,15 @@ function fetchWeatherData() {
             const d = parseInt(date.substr(8, 11));
             const time = date.substr(11);
             console.log(month[m - 1]);
-            dateOutput.innerHTML = `${dayOfTheWeek()} ${month[m - 1]} ${d}, ${y}`;
+            dateOutput.innerHTML = `${dayOfTheWeek()} ${
+                month[m - 1]
+            } ${d}, ${y}`;
             timeOutput.innerHTML = time;
 
-            const iconId = data.current.condition.icon.substring(39, data.current.condition.icon.length);
+            const iconId = data.current.condition.icon.substring(
+                39,
+                data.current.condition.icon.length
+            );
             console.log(iconId);
             icon.src = `./assets/icons/day/${iconId}`;
 
@@ -93,7 +111,10 @@ function fetchWeatherData() {
             if (data.current.is_day == "1") {
                 icon.src = `./assets/icons/day/${iconId}`;
             } else {
-                icon.src = `./assets/icons/night/${iconId.substr(2, iconId.length)}`;
+                icon.src = `./assets/icons/night/${iconId.substr(
+                    2,
+                    iconId.length
+                )}`;
             }
 
             let timeOfDay = "day";
@@ -159,11 +180,13 @@ function fetchWeatherData() {
             }
             app.style.opacity = "1";
         })
-        .catch(() => {
-            if(cityInput == ""){
+        .catch((err) => {
+            alert(err);
+            if (cityInput == "") {
                 console.log("City not found, please try again");
                 app.style.opacity = "1";
             }
+            app.style.opacity = "1";
         });
 }
 
